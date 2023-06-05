@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "elmarcet"
+version = "0.1.0"
+description = "Для аттестации"
+authors = ["Павел <chernovpp@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.1"
+psycopg2-binary = "^2.9.6"
+djangorestframework = "^3.14.0"
+envparse = "^0.2.0"
+drf-spectacular = "^0.26.2"
+django-filter = "^23.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.2"
+django-extensions = "^3.2.1"
+pytest-django = "^4.5.2"
+pytest-factoryboy = "^2.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = 'ElMarcet.settings'
+python_files = [
+    'tests.py',
+    'test_*.py',
+    '*_tests.py'
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+skip-string-normalization = true
+skip-magic-trailing-coma = true
+exclude = '''
+(
+  /(
+      \.git
+    | \.github
+    | \.venv
+    | \.pytest_cache
+  )/
+)
+'''
